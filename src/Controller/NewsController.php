@@ -15,6 +15,8 @@ class NewsController extends AbstractController
     #[Route('/news', name: 'app_news')]
     public function index(NewsRepository $newsRepository): Response
     {
+        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $qb = $newsRepository->getNewsPaginationQueryBuilder();
         $adapter = new QueryAdapter($qb);
 
