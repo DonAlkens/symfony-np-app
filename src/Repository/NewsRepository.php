@@ -16,9 +16,17 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class NewsRepository extends ServiceEntityRepository
 {
+    public const PAGINATION_PER_PAGE = 10;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, News::class);
+    }
+
+
+    public function getNewsPaginationQueryBuilder() {
+
+        return $this->createQueryBuilder('news');
     }
 
     public function save(News $entity, bool $flush = false): void

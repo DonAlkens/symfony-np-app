@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NewsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .card { width: 100%, border: 1px solid #dcdcdc; border-radius: 6; margin-bottom: 10px; padding: 10px }
+
+</style>
+
+<div class="example-wrapper">
+    {% for article in news %}
+        <div class="card">
+            <h2 class="fs-5">{{ article.title }}</h2>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
